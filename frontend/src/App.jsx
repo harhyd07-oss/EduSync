@@ -1,6 +1,6 @@
 import Welcome from './components/Welcome'
 import {useState, useEffect}from 'react'
-import StudentCard from './components/StudentCard'
+import StudentList from './components/StudentList'
 
 function App() {
 const [students, setStudents] = useState([])
@@ -18,14 +18,8 @@ useEffect(() => {
   return (<>
     <Welcome college="EduSync" name="Harsha"/>
    <h2>Students</h2>
-   {
-    students.map((student) => (
-  <StudentCard
-    key={student.roll_number}
-    student={student}
-  />
-))}
-   </>
+   
+   <StudentList students={students}/>  </>
   )
 }
 
