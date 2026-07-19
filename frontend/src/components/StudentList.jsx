@@ -1,6 +1,6 @@
 import './StudentList.css'
 import StudentCard from './StudentCard'
-function StudentList({students}){
+function StudentList({students,onEdit}){
     return(
         <div className="student-list">
              {
@@ -8,6 +8,7 @@ function StudentList({students}){
   <StudentCard
     key={student.roll_number}
     student={student}
+    onEdit={onEdit}
   />
 ))}
         </div>

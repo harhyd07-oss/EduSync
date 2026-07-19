@@ -4,6 +4,7 @@ import StudentList from './components/StudentList'
 import StudentForm from './components/StudentForm'
 function App() {
 const [students, setStudents] = useState([])
+const [selectedStudent, setSelectedStudent] = useState(null);
 useEffect(() => {
  
  
@@ -19,8 +20,9 @@ useEffect(() => {
   return (<>
     <Welcome college="EduSync" name="Harsha"/>
    <h2>Students</h2>
-   <StudentForm onStudentAdded={getStudents}/>
-   <StudentList students={students} />  </>
+   <StudentForm onStudentAdded={getStudents} selectedStudent={selectedStudent} setSelectedStudent={setSelectedStudent}/>
+   <StudentList students={students} 
+   onEdit={setSelectedStudent}/>  </>
   )
 }
 

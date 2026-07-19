@@ -1,5 +1,5 @@
 import "./StudentCard.css"
-function StudentCard({student}){
+function StudentCard({student, onEdit}){
     return(
      
         <div className="card">
@@ -31,7 +31,7 @@ function StudentCard({student}){
         
         
         <div className="button-container">
-            <button className="edit-button">Edit</button>
+            <button className="edit-button" onClick={()=>onEdit(student)}>Edit</button>
             <button className="delete-button">Delete</button>
             </div>    
         </div>
