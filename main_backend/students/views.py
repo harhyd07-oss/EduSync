@@ -9,8 +9,14 @@ from rest_framework import status
 @api_view(['GET','POST'])
 def student_list(request):
     if request.method == 'GET':
-        students = Student.objects.all()
+        search_query = request.GET.get("search")
+        if search_query:
+            students= Student.objects.filter(name__icontains=search_query)
+        else:
+            students = Student.objects.all()
+        
         serializer = StudentSerializer(students, many=True)
+        
         return Response(serializer.data)
     elif request.method == 'POST':
         serializer = StudentSerializer(data=request.data)
